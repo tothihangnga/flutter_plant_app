@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ui_13/core/color.dart';
+import '/env.dart';
 import 'package:ui_13/data/bottom_menu.dart';
 import 'package:ui_13/page/home_page.dart';
 
@@ -43,7 +43,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                   },
                   child: Image.asset(
                     bottomMenu[i].imagePath,
-                    color: selectIndex == i ? green : grey.withOpacity(0.5),
+                    color: selectIndex == i ?  AppColors.grey: AppColors.grey.withOpacity(0.5),
                   ),
                 )
             ],
@@ -56,7 +56,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
 List<Widget> child = [
   const HomePage(),
-  Container(color: white),
-  Container(color: white),
-  Container(color: white),
+  Container(color: AppColors.white),
+  Container(color: AppColors.white),
+  Container(color: AppColors.white),
 ];

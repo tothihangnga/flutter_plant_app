@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:ui_13/core/color.dart';
+import '/env.dart';
 import 'package:ui_13/data/category_model.dart';
 import 'package:ui_13/data/plant_data.dart';
 import 'package:ui_13/page/details_page.dart';
@@ -24,10 +24,10 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: white,
+      backgroundColor: AppColors.white,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: white,
+        backgroundColor: AppColors.white,
         automaticallyImplyLeading: false,
         leadingWidth: 40,
         leading: TextButton(
@@ -42,10 +42,10 @@ class _HomePageState extends State<HomePage> {
             width: 40.0,
             margin: const EdgeInsets.only(right: 20, top: 10, bottom: 5),
             decoration: BoxDecoration(
-              color: green,
+              color: AppColors.green,
               boxShadow: [
                 BoxShadow(
-                  color: green.withOpacity(0.5),
+                  color: AppColors.green.withOpacity(0.5),
                   blurRadius: 10,
                   offset: const Offset(0, 0),
                 ),
@@ -72,11 +72,11 @@ class _HomePageState extends State<HomePage> {
                     width: 300.0,
                     padding: const EdgeInsets.symmetric(horizontal: 10.0),
                     decoration: BoxDecoration(
-                      color: white,
-                      border: Border.all(color: green),
+                      color: AppColors.white,
+                      border: Border.all(color: AppColors.green),
                       boxShadow: [
                         BoxShadow(
-                          color: green.withOpacity(0.15),
+                          color: AppColors.green.withOpacity(0.15),
                           blurRadius: 10,
                           offset: const Offset(0, 0),
                         ),
@@ -108,10 +108,10 @@ class _HomePageState extends State<HomePage> {
                     width: 45.0,
                     padding: const EdgeInsets.symmetric(horizontal: 10.0),
                     decoration: BoxDecoration(
-                      color: green,
+                      color: AppColors.green,
                       boxShadow: [
                         BoxShadow(
-                          color: green.withOpacity(0.5),
+                          color: AppColors.green.withOpacity(0.5),
                           blurRadius: 10,
                           offset: const Offset(0, 0),
                         ),
@@ -120,7 +120,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     child: Image.asset(
                       'assets/icons/adjust.png',
-                      color: white,
+                      color: AppColors.white,
                       height: 25,
                     ),
                   ),
@@ -144,15 +144,15 @@ class _HomePageState extends State<HomePage> {
                             categories[i].name,
                             style: TextStyle(
                               color: selectId == i
-                                  ? green
-                                  : black.withOpacity(0.7),
+                                  ? AppColors.green
+                                  : AppColors.black.withOpacity(0.7),
                               fontSize: 16.0,
                             ),
                           ),
                           if (selectId == i)
                             const CircleAvatar(
                               radius: 3,
-                              backgroundColor: green,
+                              backgroundColor: AppColors.green,
                             )
                         ],
                       ),
@@ -183,14 +183,14 @@ class _HomePageState extends State<HomePage> {
                   Text(
                     'Popular',
                     style: TextStyle(
-                      color: black.withOpacity(0.7),
+                      color: AppColors.black.withOpacity(0.7),
                       fontWeight: FontWeight.bold,
                       fontSize: 18.0,
                     ),
                   ),
                   Image.asset(
                     'assets/icons/more.png',
-                    color: green,
+                    color: AppColors.green,
                     height: 20,
                   ),
                 ],
@@ -208,10 +208,10 @@ class _HomePageState extends State<HomePage> {
                     width: 200.0,
                     margin: const EdgeInsets.only(right: 20, bottom: 10),
                     decoration: BoxDecoration(
-                      color: lightGreen,
+                      color: AppColors.lightGreen,
                       boxShadow: [
                         BoxShadow(
-                          color: green.withOpacity(0.1),
+                          color: AppColors.green.withOpacity(0.1),
                           blurRadius: 10,
                           offset: const Offset(0, 5),
                         ),
@@ -235,14 +235,14 @@ class _HomePageState extends State<HomePage> {
                                 Text(
                                   populerPlants[index].name,
                                   style: TextStyle(
-                                    color: black.withOpacity(0.7),
+                                    color: AppColors.black.withOpacity(0.7),
                                     fontWeight: FontWeight.w800,
                                   ),
                                 ),
                                 Text(
                                   '\$${populerPlants[index].price.toStringAsFixed(0)}',
                                   style: TextStyle(
-                                    color: black.withOpacity(0.4),
+                                    color: AppColors.black.withOpacity(0.4),
                                     fontWeight: FontWeight.w600,
                                     fontSize: 12.0,
                                   ),
@@ -255,11 +255,11 @@ class _HomePageState extends State<HomePage> {
                           right: 20,
                           bottom: 20,
                           child: CircleAvatar(
-                            backgroundColor: green,
+                            backgroundColor: AppColors.green,
                             radius: 15,
                             child: Image.asset(
                               'assets/icons/add.png',
-                              color: white,
+                              color: AppColors.white,
                               height: 15,
                             ),
                           ),
@@ -299,25 +299,25 @@ class _HomePageState extends State<HomePage> {
       child: Container(
         padding: const EdgeInsets.all(8.0),
         decoration: BoxDecoration(
-          color: white,
+          color: AppColors.white,
           boxShadow: [
             BoxShadow(
-              color: black.withOpacity(0.05),
+              color: AppColors.black.withOpacity(0.05),
               blurRadius: 15,
               offset: const Offset(5, 5),
             ),
           ],
-          border: Border.all(color: green, width: 2),
+          border: Border.all(color: AppColors.green, width: 2),
           borderRadius: BorderRadius.circular(30.0),
         ),
         child: Stack(
           children: [
             Container(
               decoration: BoxDecoration(
-                color: lightGreen,
+                color: AppColors.lightGreen,
                 boxShadow: [
                   BoxShadow(
-                    color: black.withOpacity(0.05),
+                    color: AppColors.black.withOpacity(0.05),
                     blurRadius: 15,
                     offset: const Offset(5, 5),
                   ),
@@ -333,11 +333,11 @@ class _HomePageState extends State<HomePage> {
               right: 8,
               top: 8,
               child: CircleAvatar(
-                backgroundColor: green,
+                backgroundColor: AppColors.green,
                 radius: 15,
                 child: Image.asset(
                   'assets/icons/add.png',
-                  color: white,
+                  color: AppColors.white,
                   height: 15,
                 ),
               ),
@@ -349,7 +349,7 @@ class _HomePageState extends State<HomePage> {
                 child: Text(
                   '${plants[index].name} - \$${plants[index].price.toStringAsFixed(0)}',
                   style: TextStyle(
-                    color: black.withOpacity(0.7),
+                    color: AppColors.black.withOpacity(0.7),
                     fontWeight: FontWeight.bold,
                     fontSize: 16.0,
                   ),

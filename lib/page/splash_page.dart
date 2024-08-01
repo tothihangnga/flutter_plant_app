@@ -1,6 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:ui_13/core/color.dart';
+import '/env.dart';
 import 'package:ui_13/widgets/bottom_nav.dart';
 
 class SplashPage extends StatelessWidget {
@@ -25,7 +25,7 @@ class SplashPage extends StatelessWidget {
           const Text(
             'Bring nature home',
             style: TextStyle(
-              color: grey,
+              color: AppColors.grey,
               fontSize: 16,
               letterSpacing: 1.8,
               fontWeight: FontWeight.w600,
@@ -50,13 +50,13 @@ class SplashPage extends StatelessWidget {
                 vertical: 12.0,
               ),
               decoration: BoxDecoration(
-                color: green,
+                color: AppColors.green,
                 borderRadius: BorderRadius.circular(10.0),
               ),
               child: const Text(
                 'Sign In',
                 style: TextStyle(
-                  color: white,
+                  color: AppColors.white,
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
                 ),
@@ -68,7 +68,7 @@ class SplashPage extends StatelessWidget {
             child: Text(
               'Create an account',
               style: TextStyle(
-                color: black.withOpacity(0.7),
+                color: AppColors.black.withOpacity(0.7),
                 fontSize: 16,
                 letterSpacing: 1,
                 fontWeight: FontWeight.w600,
@@ -80,7 +80,7 @@ class SplashPage extends StatelessWidget {
             child: Text(
               'Forgot Password?',
               style: TextStyle(
-                color: black.withOpacity(0.4),
+                color: AppColors.black.withOpacity(0.4),
                 letterSpacing: 1,
                 fontWeight: FontWeight.w600,
               ),
