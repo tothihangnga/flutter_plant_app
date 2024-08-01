@@ -99,7 +99,7 @@ jobs:
         with:
           artifacts: "build/app/outputs/apk/debug/*"
           tag: v1.0.${{ github.run_number}}
-          token: ${{ secrets.ADMIN_SECRET_TO_TEST_CI_INTEGRATION_7_DAYS}}
+          token: ${{ secrets.PAT_KEY_30_DAYS}}
 
   notify_failure:
     if: failure()
