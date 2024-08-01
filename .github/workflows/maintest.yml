@@ -101,6 +101,9 @@ jobs:
         run: echo "${{ secrets.ENV_SECRET }}" > lib/env.dart
       - run: flutter pub get
       - run: flutter clean
+      - name: Update Gradle Wrapper
+        run: |
+          sed -i 's/distributionUrl=.*$/distributionUrl=https\\://services.gradle.org/distributions/gradle-7.3.3-bin.zip/' android/gradle/wrapper/gradle-wrapper.properties
       - run: flutter build apk --debug
       - uses: ncipollo/release-action@v1
         with:
