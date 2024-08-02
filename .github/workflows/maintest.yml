@@ -36,7 +36,8 @@ jobs:
       - run: flutter pub get
       - run: flutter --version
       - run: flutter analyze
-      - run: flutter test
+# If we have tests, we can run them here. Uncomment the following lines to run tests
+#      - run: flutter test
 
   build_iOSApp:
     name: Build Flutter App (iOS)
