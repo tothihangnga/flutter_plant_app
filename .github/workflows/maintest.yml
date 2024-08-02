@@ -12,6 +12,7 @@ jobs:
   flutter_test:
     name: Run Flutter Test
     runs-on: ubuntu-latest
+    # This line make sure the workflow will go on, even if the test run fail.
     continue-on-error: true
     steps:
       - name: Cache Flutter
@@ -31,6 +32,8 @@ jobs:
       - uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
+
+      # This one will create a file and import the content of that file (as a single string) through Github Secret var
       - name: Create env.dart
         run: echo "${{ secrets.ENV_SECRET }}" > lib/env.dart
       - run: flutter pub get
@@ -64,6 +67,7 @@ jobs:
           dart-version: '3.3.4'
           channel: 'stable'
       - name: Create env.dart
+        # Change the key based on the secret var you created for the env file
         run: echo "${{ secrets.ENV_SECRET }}" > lib/env.dart
       - run: flutter pub get
       - run: flutter clean
@@ -98,6 +102,7 @@ jobs:
       - uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
+      # Change the secret on your setup of the env file to the mentioned Secret var
       - name: Create env.dart
         run: echo "${{ secrets.ENV_SECRET }}" > lib/env.dart
       - run: flutter pub get
@@ -106,12 +111,26 @@ jobs:
         run: |
           sed -i 's|distributionUrl=.*|distributionUrl=https\://services.gradle.org/distributions/gradle-7.3.3-bin.zip|' android/gradle/wrapper/gradle-wrapper.properties
       - run: flutter build apk --debug
+
+      # This section setting up a release code, you have to give the PAT key the following rights:
+      #      repo
+      #      repo:status
+      #      repo_deployment
+      #      public_repo
+      #      repo:invite
+      #      workflow
+      #      write:packages
+      #      read:packages
+      #      delete:packages
+      #      notifications
+      
       - uses: ncipollo/release-action@v1
         with:
           artifacts: "build/app/outputs/apk/debug/*"
           tag: v1.0.${{ github.run_number}}
           token: ${{ secrets.PAT_KEY_30_DAYS}}
-
+  
+  # This one is quite depended on your need, dev it if you like.
   notify_failure:
     if: failure()
     runs-on: ubuntu-latest
